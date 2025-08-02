@@ -1,25 +1,17 @@
 import Link from 'next/link'
-import { PhoneIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/outline'
+import { PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
 
 const navigation = {
   main: [
     { name: 'Home', href: '/' },
     { name: 'Features', href: '/features' },
     { name: 'Demo', href: '/demo' },
+    { name: 'Bluetooth', href: '/bluetooth' },
     { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
-  ],
-  support: [
-    { name: 'FAQ', href: '/faq' },
-    { name: 'Help Center', href: '/help' },
-    { name: 'Emergency Support', href: '/emergency-support' },
-    { name: 'Technical Support', href: '/tech-support' },
   ],
   legal: [
     { name: 'Privacy Policy', href: '/privacy' },
     { name: 'Terms of Service', href: '/terms' },
-    { name: 'Cookie Policy', href: '/cookies' },
-    { name: 'Data Protection', href: '/data-protection' },
   ],
   social: [
     {
@@ -66,91 +58,72 @@ export default function Footer() {
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
-        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div className="space-y-8">
-            <div>
-              <span className="text-3xl font-bold text-white">LifeLine</span>
-              <p className="text-sm leading-6 text-gray-300 mt-2">
-                Detect Accidents Instantly. Save Lives Effortlessly.
-              </p>
-            </div>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <PhoneIcon className="h-5 w-5 text-gray-400" />
-                <span className="text-sm text-gray-300">24/7 Emergency: 112</span>
+      <div className="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Brand Section */}
+          <div>
+            <span className="text-2xl font-bold text-white">LifeLine</span>
+            <p className="text-sm leading-6 text-gray-300 mt-2">
+              Detect Accidents Instantly. Save Lives Effortlessly.
+            </p>
+            <div className="mt-4 space-y-2">
+              <div className="flex items-center space-x-2">
+                <PhoneIcon className="h-4 w-4 text-gray-400" />
+                <span className="text-sm text-gray-300">Emergency: 112</span>
               </div>
-              <div className="flex items-center space-x-3">
-                <EnvelopeIcon className="h-5 w-5 text-gray-400" />
+              <div className="flex items-center space-x-2">
+                <EnvelopeIcon className="h-4 w-4 text-gray-400" />
                 <span className="text-sm text-gray-300">info@lifelineapp.com</span>
               </div>
-              <div className="flex items-center space-x-3">
-                <MapPinIcon className="h-5 w-5 text-gray-400" />
-                <span className="text-sm text-gray-300">New Delhi, India</span>
-              </div>
             </div>
-            <div className="flex space-x-6">
+          </div>
+
+          {/* Navigation Links */}
+          <div>
+            <h3 className="text-sm font-semibold leading-6 text-white mb-4">Quick Links</h3>
+            <ul className="space-y-2">
+              {navigation.main.map((item) => (
+                <li key={item.name}>
+                  <Link href={item.href} className="text-sm text-gray-300 hover:text-white transition-colors">
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal & Social */}
+          <div>
+            <h3 className="text-sm font-semibold leading-6 text-white mb-4">Legal</h3>
+            <ul className="space-y-2 mb-4">
+              {navigation.legal.map((item) => (
+                <li key={item.name}>
+                  <Link href={item.href} className="text-sm text-gray-300 hover:text-white transition-colors">
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="flex space-x-4">
               {navigation.social.map((item) => (
-                <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-300">
+                <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-300 transition-colors">
                   <span className="sr-only">{item.name}</span>
-                  <item.icon className="h-6 w-6" aria-hidden="true" />
+                  <item.icon className="h-5 w-5" aria-hidden="true" />
                 </a>
               ))}
             </div>
           </div>
-          <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm font-semibold leading-6 text-white">Navigation</h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.main.map((item) => (
-                    <li key={item.name}>
-                      <Link href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-white">Support</h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.support.map((item) => (
-                    <li key={item.name}>
-                      <Link href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div className="md:grid md:grid-cols-1 md:gap-8">
-              <div>
-                <h3 className="text-sm font-semibold leading-6 text-white">Legal</h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.legal.map((item) => (
-                    <li key={item.name}>
-                      <Link href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
-        <div className="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24">
-          <div className="flex flex-col sm:flex-row justify-between items-center">
-            <p className="text-xs leading-5 text-gray-400">
-              &copy; 2024 LifeLine Smart Accident Detection. All rights reserved.
+
+        {/* Copyright */}
+        <div className="mt-8 pt-6 border-t border-gray-800">
+          <div className="flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
+            <p className="text-xs text-gray-400">
+              &copy; 2024 LifeLine. All rights reserved.
             </p>
-            <div className="mt-4 sm:mt-0">
-              <p className="text-xs leading-5 text-gray-400">
-                Made with ❤️ for safer roads in India
-              </p>
-            </div>
+            <p className="text-xs text-gray-400 mt-2 sm:mt-0">
+              Made with ❤️ for safer roads in India
+            </p>
           </div>
         </div>
       </div>

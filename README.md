@@ -30,7 +30,7 @@ A comprehensive Next.js website for the Smart Accident Detection & Emergency Car
 
 ## 📋 Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 - Firebase project
 - Google Maps API key
@@ -150,6 +150,7 @@ The website uses a minimal and simple light color scheme:
 ## 📱 Pages Overview
 
 ### Home Page (`/`)
+
 - Hero section with main value proposition
 - Problem statement with statistics
 - Solution overview with interactive features
@@ -159,6 +160,7 @@ The website uses a minimal and simple light color scheme:
 - Call-to-action section
 
 ### Features Page (`/features`)
+
 - GPS Location Sharing
 - Automatic Crash Detection
 - Emergency Service Integration
@@ -168,6 +170,7 @@ The website uses a minimal and simple light color scheme:
 - Feature comparison table
 
 ### Additional Pages (To be implemented)
+
 - Demo page with interactive simulation
 - Bluetooth connectivity information
 - About us with team information
